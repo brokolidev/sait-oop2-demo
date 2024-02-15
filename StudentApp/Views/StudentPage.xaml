@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="StudentApp.Views.StudentPage"
+             Title="Student Page">
+
+    <VerticalStackLayout Margin="20" Spacing="5">
+        <ListView x:Name="listOfStudent" RowHeight="60"
+                  ItemSelected="listOfStudent_ItemSelected">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Email}" Detail="{Binding Name}"></TextCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Submit" Clicked="submitButton_Clicked"></Button>
+        
+        <Button x:Name="addStudentButton" Text="Add a new student" Clicked="addStudentButton_Clicked"></Button>
+      
+    </VerticalStackLayout>
+</ContentPage>

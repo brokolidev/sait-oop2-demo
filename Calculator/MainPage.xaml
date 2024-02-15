@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Calculator.MainPage"
+             Title="Basic Calculator"
+             WidthRequest="500">
+
+    <VerticalStackLayout
+        Background="Black"
+        Padding="20"
+        Spacing="20">
+
+        <Frame 
+            HorizontalOptions="FillAndExpand">
+            <Label x:Name="mainDisplay"
+                   HorizontalOptions="FillAndExpand"
+               FontSize="30"
+               Text=""></Label>
+        </Frame>
+        
+        
+        <HorizontalStackLayout Spacing="15">
+            <Button 
+                x:Name="ResetButton"
+                Clicked="ResetButton_Clicked"
+                Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="AC"></Button>
+            <Button 
+                Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="+/-"></Button>
+            <Button 
+                Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="%"></Button>
+            
+            <Button 
+                Background="Orange"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="÷"></Button>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="15">
+            <Button x:Name="NumberButton1" 
+                    Clicked="NumberButton1_Clicked"
+                    Background="Gray"
+                    WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="1"></Button>
+            <Button x:Name="NumberButton2" 
+                    Clicked="NumberButton2_Clicked"
+                    Background="Gray"
+                    WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="2"></Button>
+            <Button x:Name="NumberButton3" 
+                    Clicked="NumberButton3_Clicked"
+                    Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="3"></Button>
+            <Button 
+                Background="Orange"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="x"></Button>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="15">
+            <Button x:Name="NumberButton4" 
+                    Clicked="NumberButton4_Clicked"
+                    Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="4"></Button>
+            <Button x:Name="NumberButton5" 
+                    Clicked="NumberButton5_Clicked"
+                    Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="5"></Button>
+            <Button x:Name="NumberButton6" 
+                    Clicked="NumberButton6_Clicked"
+                    Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="6"></Button>
+            
+            <Button 
+                x:Name="FuntionButtonPlus"
+                Clicked="FuntionButtonPlus_Clicked"
+                Background="Orange"
+                WidthRequest="100" HeightRequest="100" 
+                CornerRadius="50" FontSize="30" Text="+"></Button>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="15">
+            <Button x:Name="NumberButton7" 
+                    Clicked="NumberButton7_Clicked"
+                    Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="7"></Button>
+            <Button x:Name="NumberButton8" 
+                    Clicked="NumberButton8_Clicked"
+                    Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="8"></Button>
+            <Button x:Name="NumberButton9" 
+                    Clicked="NumberButton9_Clicked"
+                    Background="Gray"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="9"></Button>
+            <Button 
+                x:Name="FunctionButtonMinus"
+                Clicked="FunctionButtonMinus_Clicked"
+                Background="Orange"
+                WidthRequest="100" HeightRequest="100" CornerRadius="50" FontSize="30" Text="-"></Button>
+        </HorizontalStackLayout>
+
+        <HorizontalStackLayout Spacing="15">
+            <Button x:Name="NumberButton0" 
+                    Clicked="NumberButton0_Clicked"
+                    Background="Gray"
+                    CornerRadius="50" WidthRequest="210" HeightRequest="100" FontSize="30" Text="0"></Button>
+            <Button x:Name="NumberDot"
+                    Background="Gray"
+                    CornerRadius="50" WidthRequest="100" HeightRequest="100" FontSize="30" Text="."></Button>
+            <Button 
+                x:Name="FunctionButtonEqual"
+                Clicked="FunctionButtonEqual_Clicked"
+                Background="Orange"
+                FontSize="40"
+                CornerRadius="50" WidthRequest="100" Text="="></Button>
+        </HorizontalStackLayout>
+    </VerticalStackLayout>
+
+</ContentPage>
