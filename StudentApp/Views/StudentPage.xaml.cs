@@ -42,4 +42,13 @@ public partial class StudentPage : ContentPage
     {
 		Shell.Current.GoToAsync(nameof(AddStudentPage));
     }
+
+    private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
+    {
+		// on window machine, it works without observable collection
+		var students = new ObservableCollection<Student>(
+			StudentRepository.SearchforStudents(searchBar.Text));
+
+		listOfStudent.ItemsSource = students;
+    }
 }

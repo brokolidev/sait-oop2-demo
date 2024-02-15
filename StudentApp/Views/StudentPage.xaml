@@ -5,6 +5,13 @@
              Title="Student Page">
 
     <VerticalStackLayout Margin="20" Spacing="5">
+
+        <SearchBar x:Name="searchBar" Placeholder="Search for a student by name or email" 
+                   TextChanged="searchBar_TextChanged"
+                   SearchCommand="{Binding SearchCommand}" 
+                   SearchCommandParameter="{Binding Text, Source={x:Reference searchBar}}">
+        </SearchBar>
+
         <ListView x:Name="listOfStudent" RowHeight="60"
                   ItemSelected="listOfStudent_ItemSelected">
             <ListView.ItemTemplate>

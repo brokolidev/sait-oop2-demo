@@ -51,5 +51,26 @@ namespace StudentApp.Model
                 studentUpdate.Phone = student.Phone;
             }
         }
+
+        public static List<Student> SearchforStudents(string filterText)
+        {
+            // create function for searching students
+            var studentsFound = students.Where(x => !string.IsNullOrWhiteSpace(x.Name) && 
+                x.Name.StartsWith(filterText, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            if(studentsFound== null || studentsFound.Count == 0)
+            {
+                studentsFound = students.Where(x => !string.IsNullOrWhiteSpace(x.Email) &&
+                x.Email.StartsWith(filterText, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            if (studentsFound == null || studentsFound.Count == 0)
+            {
+                studentsFound = students.Where(x => !string.IsNullOrWhiteSpace(x.Address) &&
+                x.Address.StartsWith(filterText, StringComparison.OrdinalIgnoreCase)).ToList();
+            }
+
+            return studentsFound;
+        }
     }
 }
