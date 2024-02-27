@@ -9,7 +9,7 @@
         <Label 
             x:Name="title"
             Text="Edit Student Page - This page is from Control view"
-            FontSize="Smal"
+            FontSize="Small"
             VerticalOptions="Center" 
             TextColor="DarkBlue"
             HorizontalOptions="Start" />
