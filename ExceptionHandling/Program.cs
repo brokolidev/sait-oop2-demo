@@ -4,15 +4,16 @@
     {
         static void Main(string[] args)
         {
+
+            Circle circle = new Circle();
+
             try
             {
-                Circle positiveCircle = new Circle(5);
-                //Circle negativeCircle = new Circle(-5);
-                Circle zeroCircle = new Circle(0);
+                circle.Radius = -5;
             }
             finally
             {
-                Console.WriteLine("Everything works fine.");
+                Console.WriteLine(circle);
             }
 
 

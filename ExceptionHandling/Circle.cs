@@ -12,28 +12,26 @@ namespace ExceptionHandling
         public double Radius
         {
             get => _radius;
+
+            set
+            {
+                if (value > 0)
+                {
+                    this._radius = value;
+                }
+                else if (value == 0)
+                {
+                    throw new InvalidRadiusException("Radius cannot be zero.", this);
+                }
+                else
+                {
+                    throw new InvalidRadiusException("Radius cannot be negative.");
+                }
+            }
         }
         
-        public Circle(double radius)
+        public Circle()
         {
-            SetRadius(radius);
-        }
-
-        public void SetRadius(double radius)
-        {
-
-            if(radius > 0)
-            {
-                this._radius = radius;
-            }
-            else if(radius == 0)
-            {
-                throw new InvalidRadiusException("Radius cannot be zero.", this);
-            } 
-            else
-            {
-                throw new InvalidRadiusException("Radius cannot be negative.");
-            }
         }
 
         public override string ToString()
