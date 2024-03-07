@@ -1,8 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Reflection;
-using System.Resources;
-using System.Xml.Linq;
+﻿using System.Text;
 
 namespace streams
 {
@@ -20,6 +16,10 @@ namespace streams
             // print out apsolute path of raw directory
             WriteToBinFile(PATH);
             ReadFromBinFile(PATH);
+
+            // using FileStream
+            ReadWithFileStream(PATH);
+            WriteWithSeek(PATH);
 
         }
 
@@ -68,6 +68,37 @@ namespace streams
                 Console.WriteLine(i);
                 Console.WriteLine(d);
                 Console.WriteLine(s);
+            }
+        }
+
+        // using filestream
+        // this is completcated compare to using StreamWriter and StreamReader
+        // but it is fater than those two
+        private static void ReadWithFileStream(string path)
+        {
+            using (FileStream fileStream = new FileStream(path, FileMode.Open))
+            {
+                byte[] buffer = new byte[1024];
+                int bytesRead = fileStream.Read(buffer, 0, buffer.Length);
+
+                while(bytesRead > 0)
+                {
+                    Console.WriteLine(Encoding.UTF8.GetString(buffer, 0, bytesRead));
+                    bytesRead = fileStream.Read(buffer, 0, buffer.Length);
+                }
+            }
+        }
+
+        // using seek
+        private static void WriteWithSeek(string path)
+        {
+            using (FileStream fileStream = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write))
+            {
+                fileStream.Seek(10, SeekOrigin.Begin);
+
+                byte[] buffer = Encoding.UTF8.GetBytes("Today is the day. Hello World.");
+
+                fileStream.Write(buffer, 0, buffer.Length);
             }
         }
 
