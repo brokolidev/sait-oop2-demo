@@ -8,7 +8,9 @@ namespace streams
         {
             Console.WriteLine("Hello, World!");
 
-            const string PATH = "C:\\dev\\dotnet\\oop2\\demos\\streams\\res\\textfile.txt";
+            var ROOT = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
+
+            string PATH = $"{ROOT}/res/textfile.txt";
 
             WriteToTextFile(PATH);
             ReadFromFile(PATH);
