@@ -24,6 +24,24 @@ namespace Database
                 Console.WriteLine(item);
             }
 
+            Student newStudent = new Student
+            {
+                Name = "Matt Damon",
+                Email = "matt@sait.ca",
+                Address = "Address Matt Damon 1234",
+            };
+
+            //studentManager.AddStudent(newStudent);
+
+            newStudent.Email = "matt@gmail.com";
+            newStudent.Name = "Mat Daemon";
+            newStudent.Address = "1234 Aspen Glan";
+            newStudent.Id = 12;
+
+            //studentManager.UpdateStudent(newStudent);
+
+
+            studentManager.DeleteStudent(newStudent);
         }
     }
 }
