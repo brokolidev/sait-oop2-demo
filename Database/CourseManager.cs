@@ -18,6 +18,22 @@ namespace Database
             this.connectionString = connectionString;
         }
 
+        // drop table using SQLite
+        public void DropTable()
+        {
+            using (var connection = new SQLiteConnection(connectionString))
+            {
+                connection.Open();
+
+                var query = "DROP TABLE IF EXISTS Courses";
+
+                using (var command = new SQLiteCommand(query, connection))
+                {
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         // create table using SQLite
         public void CreateTable()
         {
@@ -111,9 +127,9 @@ namespace Database
                         {
                             courses.Add(new Course()
                             {
-                                CourseId = reader.GetInt32(1),
-                                Name = reader.GetString(2),
-                                Credits = reader.GetInt32(3),
+                                CourseId = reader.GetInt32(0),
+                                Name = reader.GetString(1),
+                                Credits = reader.GetInt32(2),
                             });
                         }
                     }

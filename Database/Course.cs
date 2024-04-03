@@ -23,7 +23,7 @@ namespace Database
         {
             return $"Coures ID : {CourseId}\n" +
                 $"Name : {Name}\n" +
-                $"Credits : {Credits}";
+                $"Credits : {Credits}\n";
         }
 
 
