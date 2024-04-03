@@ -1,4 +1,5 @@
 ﻿using MySqlConnector;
+using System.Data.Entity;
 
 namespace Database
 {
@@ -6,42 +7,14 @@ namespace Database
     {
         static void Main(string[] args)
         {
-            MySqlConnectionStringBuilder builder = new MySqlConnectionStringBuilder 
-            {
-                Server = "localhost",
-                UserID = "root",
-                Password = "",
-                Database = "oop2",
-            };
+            string path = Directory.GetParent(Directory.GetCurrentDirectory()).Parent.Parent.FullName;
 
-            Console.WriteLine(builder);
+            CourseManager courseManager = 
+                new CourseManager($"Data Source={path}/database.db; Version = 3; New = True; Compress = True;");
 
-            StudentManager studentManager = new StudentManager(builder.ConnectionString);
-            List<Student> students = studentManager.GetAllStudents();
-
-            foreach (var item in students)
-            {
-                Console.WriteLine(item);
-            }
-
-            Student newStudent = new Student
-            {
-                Name = "Matt Damon",
-                Email = "matt@sait.ca",
-                Address = "Address Matt Damon 1234",
-            };
-
-            //studentManager.AddStudent(newStudent);
-
-            newStudent.Email = "matt@gmail.com";
-            newStudent.Name = "Mat Daemon";
-            newStudent.Address = "1234 Aspen Glan";
-            newStudent.Id = 12;
-
-            //studentManager.UpdateStudent(newStudent);
-
-
-            studentManager.DeleteStudent(newStudent);
+            
+            // create Courses table, once created comment this line
+            courseManager.CreateTable();
         }
     }
 }

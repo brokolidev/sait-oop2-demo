@@ -12,6 +12,7 @@ namespace Database
     {
         private string connectionString;
 
+        // constructor with connection string
         public StudentManager(string connectionString)
         {
             this.connectionString = connectionString;
