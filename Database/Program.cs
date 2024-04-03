@@ -14,7 +14,9 @@ namespace Database
 
             
             // create Courses table, once created comment this line
-            courseManager.CreateTable();
+            //courseManager.CreateTable();
+
+
         }
     }
 }
